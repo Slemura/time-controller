@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "time-controller-game.Plugins", "time-controller-game.Plugins.csproj", "{6E071057-4B7A-D584-FC26-F52E727A3D61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "time-controller-game", "time-controller-game.csproj", "{74D1A189-3DD7-CB26-434B-37E0BA079076}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "time-controller-game.Editor", "time-controller-game.Editor.csproj", "{544474F4-CDC0-C680-C1D8-D4E840F8AD5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E071057-4B7A-D584-FC26-F52E727A3D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E071057-4B7A-D584-FC26-F52E727A3D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E071057-4B7A-D584-FC26-F52E727A3D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E071057-4B7A-D584-FC26-F52E727A3D61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74D1A189-3DD7-CB26-434B-37E0BA079076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74D1A189-3DD7-CB26-434B-37E0BA079076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74D1A189-3DD7-CB26-434B-37E0BA079076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74D1A189-3DD7-CB26-434B-37E0BA079076}.Release|Any CPU.Build.0 = Release|Any CPU
+		{544474F4-CDC0-C680-C1D8-D4E840F8AD5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{544474F4-CDC0-C680-C1D8-D4E840F8AD5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{544474F4-CDC0-C680-C1D8-D4E840F8AD5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{544474F4-CDC0-C680-C1D8-D4E840F8AD5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

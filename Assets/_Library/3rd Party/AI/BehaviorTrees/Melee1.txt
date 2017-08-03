@@ -1,0 +1,3 @@
+<behaviortree name="Melee">
+  <sequencer name="root"></sequencer>
+</behaviortree>
