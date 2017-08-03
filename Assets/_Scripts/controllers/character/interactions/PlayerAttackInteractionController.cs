@@ -18,7 +18,7 @@ public class PlayerAttackInteractionController : InteractionController {
         CheckInput();
 	}
     protected override void CheckInput() {        
-        if (Input.GetMouseButtonUp(0) && _inited && !_active) {
+        if (Input.GetMouseButton(0) && _inited && !_active) {
             _register_interaction(this);
         }
     }

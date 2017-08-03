@@ -10,7 +10,7 @@ public class SelectableAbilityInteractionController : InteractionController {
     GameObject _selection;
 
     Vector3 _selection_last_position;
-
+    
 	void Start () {
 		
 	}
@@ -41,7 +41,7 @@ public class SelectableAbilityInteractionController : InteractionController {
         }
 
         if (_selection_active) {
-            if(Input.GetMouseButtonUp(0)) {
+            if(Input.GetMouseButtonDown(0)) {
                 if(_selection != null) {
                     _selection_last_position = _selection.transform.position;
                     HideSelection();
