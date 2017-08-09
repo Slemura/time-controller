@@ -35,7 +35,7 @@ public class InteractionModel : MonoBehaviour {
     }
 
     public virtual bool IsTargetEnemy(string income_tag) {
-                
+
         if (_target_tags == null) {
             this._target_tags = MainModel.instance.GetEnemyTag(owner_tag);
         }

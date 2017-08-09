@@ -59,7 +59,12 @@ public class CharacterCoreController : MonoBehaviour {
     }
 
     public bool HaveActiveInteraction() {
-        return interaction_controller.HaveActiveInteraction();
+        if (interaction_controller != null) {
+            return interaction_controller.HaveActiveInteraction();
+        } else {
+            return false;
+        }
+        
     }
 
     public float GetCurrentSpeed() {

@@ -9,7 +9,8 @@ public class CharacterRotationController : InteractionController {
 
     private bool _rotate_to_target = false;
     private Quaternion _target_quaternion;
-
+    private Transform _target;
+    private bool _target_quaternion_inited = false;
     void Start () {
         _core_controller = GetComponent<CharacterCoreController>();
 	}
@@ -20,10 +21,22 @@ public class CharacterRotationController : InteractionController {
                 Rotate();
             } else {
                 if (_rotate_to_target) {
-                    if (transform.localRotation != _target_quaternion) {
-                        _core_controller.gameObject.transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _target_quaternion, 15);
+                    if (!_core_controller.interaction_controller.LockRotation()) {
+                        _target_quaternion = Quaternion.LookRotation(new Vector3(_target.position.x, 0, _target.position.z) - new Vector3(transform.position.x, 0, transform.position.z));
+                        _core_controller.gameObject.transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _target_quaternion, 25);
                     } else {
-                        _rotate_to_target = false;
+
+                        if(!_target_quaternion_inited) {
+                            _target_quaternion_inited = true;
+                            _target_quaternion = Quaternion.LookRotation(new Vector3(_target.position.x, 0, _target.position.z) - new Vector3(transform.position.x, 0, transform.position.z));
+                        }
+
+                        if (transform.localRotation != _target_quaternion) {
+                            _core_controller.gameObject.transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _target_quaternion, 25);
+                        } else {
+                            _target_quaternion_inited = false;
+                            _rotate_to_target = false;
+                        }
                     }
                 }
             }
@@ -58,8 +71,8 @@ public class CharacterRotationController : InteractionController {
         }        
     }
 
-    public void IntantRotateToTarget(Transform target) {
-        _target_quaternion = Quaternion.LookRotation(new Vector3(target.position.x, 0, target.position.z) - new Vector3(transform.position.x, 0, transform.position.z));
+    public void InstantRotateToTarget(Transform target) {
+        _target = target;
         _rotate_to_target = true;
     }
 
@@ -79,6 +92,5 @@ public class CharacterRotationController : InteractionController {
 
     void SmoothRotateToQuaternion(Quaternion direction) {
         _core_controller.character_container.transform.localRotation = Quaternion.RotateTowards(_core_controller.character_container.transform.localRotation, direction, max_rotation_delta);
-    }
-
+    }    
 }

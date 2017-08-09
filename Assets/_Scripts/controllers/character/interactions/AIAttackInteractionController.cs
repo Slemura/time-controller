@@ -39,7 +39,7 @@ public class AIAttackInteractionController : InteractionController {
             _active = true;            
             _core_controller.animation_controller.AddListener(CharacterAnimationController.AnimationEvent.ANIMATION_PEAK.ToString(), SendAttack);
             _core_controller.animation_controller.SetInteractAnimation(_model.animation_speed_multiplier);
-            _core_controller.rotation_controller.IntantRotateToTarget((_core_controller as AICoreController).attack_target);
+            _core_controller.rotation_controller.InstantRotateToTarget((_core_controller as AICoreController).attack_target);
             Invoke("FinishInteraction", _model.time_length);
         }
     }

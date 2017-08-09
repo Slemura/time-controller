@@ -13,6 +13,7 @@ public class TimeScaleController : MonoBehaviour {
     public float max_blur_value = 0.2f;
     public float max_vignette_value = 0.3f;
 
+    public float min_time_scale = 0.04f;
     // Use this for initialization
     void Start () {
         _core_controller = GetComponent<CharacterCoreController>();
@@ -22,16 +23,16 @@ public class TimeScaleController : MonoBehaviour {
     void Update() {
         if(_core_controller != null && !_core_controller.model.blocked) {
             if (Input.GetAxis("Vertical") == 0 && Input.GetAxis("Horizontal") == 0 && !_core_controller.interaction_controller.HaveAnyInteraction()) {
-                Time.timeScale = 0.1f;
+                Time.timeScale = min_time_scale;
             } else {
                 Time.timeScale = 1.0f;
             }
         } else {
-            Time.timeScale = 0.1f;
+            Time.timeScale = min_time_scale;
         }
 
 
-        if (Time.timeScale == 0.1f) {
+        if (Time.timeScale == min_time_scale) {
             if (vignette_effect_core.chromaticAberration < max_abberation_value) {
                 vignette_effect_core.chromaticAberration += 100 * Time.deltaTime;
             }
